@@ -8,6 +8,7 @@ install:
   - bower update
   - mv bower_components/ app/
 script:
+<<<<<<< HEAD
   - gulp serve
 addons:
   apt:
@@ -15,3 +16,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+=======
+  - gulp wct:local
+>>>>>>> d28565c3a531f6d279de5a719580e838e48d811c
