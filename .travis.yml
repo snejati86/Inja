@@ -8,4 +8,4 @@ install:
   - bower update
   - mv bower_components/ app/
 script:
-  - gulp serve
+  - gulp wct:local
