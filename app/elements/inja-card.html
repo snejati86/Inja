@@ -10,7 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
-
 <dom-module id="inja-card">
     <template>
         <style>
@@ -20,6 +19,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             .card{
                 border-radius: 2px;
                 border : solid 1px;
+                min-height: 100px;
+                background-color: #036cdb;
+            }
+            .left{
+                font-size: 50px;
+                color: #fff;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-style: normal;
+                font-weight: 300;
             }
 
             span {
@@ -27,12 +35,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
         </style>
 
-        <ul class="card">
-            <h1>Inja card</h1>
-            <p>This card is suppose to show 3 things, initially:
-                A two word title, a thumbs up/down sort of icon.
-            </p>
-        </ul>
+        <div class="card row text-center">
+            <div class="col-sm-2 left">Left</div>
+            <div class="col-sm-8">Mid</div>
+            <div class="col-sm-2">Right</div>
+        </div>
     </template>
 
     <script>
