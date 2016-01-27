@@ -10,6 +10,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+
+
 <dom-module id="inja-card">
     <template>
         <style>
@@ -22,12 +26,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 min-height: 100px;
                 background-color: #036cdb;
             }
-            .left{
-                font-size: 50px;
+            .left,.right,.middle{
                 color: #fff;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-style: normal;
-                font-weight: 300;
+                font-family: "Roboto", sans-serif;
             }
 
             span {
@@ -36,9 +37,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </style>
 
         <div class="card row text-center">
-            <div class="col-sm-2 left">Left</div>
-            <div class="col-sm-8">Mid</div>
-            <div class="col-sm-2">Right</div>
+            <div class="col-sm-2 left">
+                <h1 id="upvote"></h1>
+            </div>
+            <div class="col-sm-8 middle" >
+                <h1 id="title">Middle</h1>
+                <h3 id="user">down</h3>
+            </div>
+            <div class="col-sm-2 right">
+                <h1 id="downvote"></h1>
+            </div>
         </div>
     </template>
 
@@ -50,13 +58,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 is: 'inja-card',
 
                 properties: {
-                    items: {
-                        type: Array,
-                        notify: true,
+                    name: {
+                        type: String
+                    },
+                    author:{
+                        type: String
+                    },
+                    upVote:{
+                        type: Number
+                    },
+                    downVote:{
+                        type: Number
                     }
+                },
+                listeners: {
+                    'track': 'onHold',
+                    'up':'onRelease'
+                },
+
+                onHold:function(e){
+                    this.$$("#title").innerHTML = "Hold in progress!"
+                },
+                onRelease:function(e){
+                    this.$$("#title").innerHTML = this.name;
                 },
 
                 ready: function() {
+                    this.$$("#title").innerHTML = this.name;
+                    this.$$("#upvote").innerHTML = this.upVote;
+                    this.$$("#downvote ").innerHTML = this.downVote;
+                    this.$$("#user").innerHTML = this.author;
 
                 }
             });
