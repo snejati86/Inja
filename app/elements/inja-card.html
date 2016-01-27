@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animation.html">
 <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
 
@@ -56,8 +57,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             Polymer({
                 is: 'inja-card',
+                behaviors: [
+                    Polymer.NeonAnimationRunnerBehavior
+                ],
 
                 properties: {
+                    animationConfig: {
+                        value: function() {
+                            return {
+                                // provided by neon-animation/animations/scale-down-animation.html
+                                name: 'slide-from-left-animation',
+                                node: this
+                            }
+                        }
+                    },
                     name: {
                         type: String
                     },
@@ -72,22 +85,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     }
                 },
                 listeners: {
-                    'track': 'onHold',
+                    'down': 'onHold',
                     'up':'onRelease'
                 },
 
                 onHold:function(e){
-                    this.$$("#title").innerHTML = "Hold in progress!"
+                    this.$$("#title").innerHTML = "Hold in progress!";
                 },
                 onRelease:function(e){
                     this.$$("#title").innerHTML = this.name;
+                    //this.transform('scaleY(1)',this);
                 },
+                animate: function() {
+                    // run scale-down-animation
+                    this.playAnimation();
+                },
+
 
                 ready: function() {
                     this.$$("#title").innerHTML = this.name;
                     this.$$("#upvote").innerHTML = this.upVote;
                     this.$$("#downvote ").innerHTML = this.downVote;
                     this.$$("#user").innerHTML = this.author;
+                    this.animate();
 
                 }
             });
