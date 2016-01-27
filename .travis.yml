@@ -3,16 +3,9 @@ node_js:
   - "4"
 env:
   - CXX=g++-4.8
-  install:
+install:
   - npm install
   - bower update
   - mv bower_components/ app/
 script:
   - gulp serve
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
