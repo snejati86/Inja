@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
 <link rel="import" href="../../bower_components/neon-animation/neon-animation.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
 
@@ -22,24 +23,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 display: block;
             }
             .card{
-                border-radius: 2px;
-                border : solid 1px;
-                min-height: 100px;
                 background-color: #036cdb;
             }
             .left,.right,.middle{
                 color: #fff;
                 font-family: "Roboto", sans-serif;
             }
-
+            .heart{
+                height: 30px;
+                width: 30px;
+            }
             span {
-            @apply(--paper-font-body1);
+                 @apply(--paper-font-body1);
             }
         </style>
-
+    <paper-card>
         <div class="card row text-center">
             <div class="col-sm-2 left">
                 <h1 id="upvote"></h1>
+                <img class="heart" src="../../images/heart.png">
             </div>
             <div class="col-sm-8 middle" >
                 <h1 id="title">Middle</h1>
@@ -49,6 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h1 id="downvote"></h1>
             </div>
         </div>
+    </paper-card>
     </template>
 
     <script>
