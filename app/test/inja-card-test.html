@@ -10,26 +10,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <html>
-
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>Elements Test Runner</title>
-    <meta charset="UTF-8">
+    <title>my-greeting-basic</title>
 
     <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <script src="../bower_components/web-component-tester/browser.js"></script>
-  </head>
 
-  <body>
+    <!-- Import the element to test -->
+    <link rel="import" href="../elements/inja-card.html">
 
-    <script>
-      WCT.loadSuites([
-        'inja-card-test.html',
-          'inja-card-test.html?dom=shadow'
-      ]);
-    </script>
+</head>
+<body>
 
+<test-fixture id="basic">
+    <template>
+        <inja-card></inja-card>
+    </template>
+</test-fixture>
 
-  </body>
+<script>
 
+    suite('inja-card tests', function() {
+        var card, header;
+
+        setup(function() {
+            card = fixture('basic');
+        });
+
+        test('Dummy asert', function() {
+            card.foo = 2;
+            assert.equal(card.foo, 2);
+        });
+
+    });
+</script>
+
+</body>
 </html>

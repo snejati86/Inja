@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       page.base(app.baseUrl.replace(/\/$/, ''));
     }
 
-    // Middleware
+  /*  // Middleware
     function scrollToTop(ctx, next) {
       app.scrollPageToTop();
       next();
@@ -30,10 +30,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function closeDrawer(ctx, next) {
       app.closeDrawer();
       next();
-    }
+    }*/
 
     // Routes
-    page('*', scrollToTop, closeDrawer, function(ctx, next) {
+    page('*', function(ctx, next) {
       next();
     });
 
@@ -60,8 +60,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // 404
     page('*', function() {
-      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
-      app.$.toast.show();
+//      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+//      app.$.toast.show();
       page.redirect(app.baseUrl);
     });
 
