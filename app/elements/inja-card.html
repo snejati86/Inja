@@ -40,15 +40,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <paper-card>
         <div class="card row text-center">
             <div class="col-sm-2 left">
-                <h1 id="upvote"></h1>
+                <h1 id="upvote">{{upVote}}</h1>
                 <img class="heart" src="../../images/heart.png">
             </div>
             <div class="col-sm-8 middle" >
-                <h1 id="title">Middle</h1>
-                <h3 id="user">down</h3>
+                <h1 id="title">{{name}}</h1>
+                <h3 id="user">{{author}}</h3>
             </div>
             <div class="col-sm-2 right">
-                <h1 id="downvote"></h1>
+                <h1 id="downvote">{{downVote}}</h1>
             </div>
         </div>
     </paper-card>
@@ -106,10 +106,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
                 ready: function() {
-                    this.$$("#title").innerHTML = this.name;
+/*                    this.$$("#title").innerHTML = this.name;
                     this.$$("#upvote").innerHTML = this.upVote;
                     this.$$("#downvote ").innerHTML = this.downVote;
-                    this.$$("#user").innerHTML = this.author;
+                    this.$$("#user").innerHTML = this.author;*/
                     this.animate();
 
                 }
