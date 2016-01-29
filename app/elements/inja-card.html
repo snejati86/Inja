@@ -43,7 +43,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <h1 id="upvote">{{upVote}}</h1>
                 <img class="heart" src="../../images/heart.png">
             </div>
-            <div class="col-sm-8 middle" >
+            <div on-tap="toggleView" class="col-sm-8 middle" >
+
+                <div hidden$="{{shortView}}">
+                    <h3>{{desc}}</h3>
+                </div>
                 <h1 id="title">{{name}}</h1>
                 <h3 id="user">{{author}}</h3>
             </div>
@@ -63,7 +67,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 behaviors: [
                     Polymer.NeonAnimationRunnerBehavior
                 ],
-
+                toggleView : function(){
+                  console.log('Damn');
+                  this.shortView = !this.shortView;
+                },
                 properties: {
                     animationConfig: {
                         value: function() {
@@ -73,6 +80,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                                 node: this
                             }
                         }
+                    },
+                    shortView : {
+                        type : Boolean,
+                        value : true,
+                        notify : true
                     },
                     name: {
                         type: String
@@ -85,18 +97,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     },
                     downVote:{
                         type: Number
+                    },
+                    desc:{
+                        type:String
                     }
+
                 },
                 listeners: {
                     'down': 'onHold',
                     'up':'onRelease'
                 },
 
-                onHold:function(e){
-                    this.$$("#title").innerHTML = "Hold in progress!";
+                onHold:function(e) {
                 },
                 onRelease:function(e){
-                    this.$$("#title").innerHTML = this.name;
+                   // this.$$("#title").innerHTML = this.name;
                     //this.transform('scaleY(1)',this);
                 },
                 animate: function() {
@@ -106,6 +121,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
                 ready: function() {
+
 /*                    this.$$("#title").innerHTML = this.name;
                     this.$$("#upvote").innerHTML = this.upVote;
                     this.$$("#downvote ").innerHTML = this.downVote;
