@@ -1,7 +1,14 @@
 
 (function(document) {
   'use strict';
-
+  //TODO : I don't know if this belongs here, the official documentation says  that this must be placed in the body element of EACH page ?
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
@@ -60,6 +67,8 @@
     // Scale middleContainer appName
     Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
   });
+
+
 
 /*  // Scroll page to top and expand header
   app.scrollPageToTop = function() {
