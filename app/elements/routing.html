@@ -45,8 +45,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'home';
     });
 
-    page('/users', function() {
-      app.route = 'users';
+    page('/user', function(ctx, next) {
+        app.route = 'user';
+        var user = ctx;
+        console.log('Current user = '+user);
     });
 
     page('/users/:name', function(data) {

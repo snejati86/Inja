@@ -24,26 +24,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
             .card{
                 background-color: #036cdb;
+                min-width: 100%;
+                margin: 1%;
+                height: 17%;
             }
-            .left,.right,.middle{
+            .left,.middle{
                 color: #fff;
                 font-family: "Roboto", sans-serif;
-            }
-            .heart{
-                height: 30px;
-                width: 30px;
             }
             span {
                  @apply(--paper-font-body1);
             }
+            h1,h3 { font-size: 2em }
+
         </style>
-    <paper-card>
-        <div class="card row text-center">
-            <div class="col-sm-4 left">
+    <paper-card class="card">
+        <div class="">
+            <div class="col-xs-3 left">
                 <h1 id="upvote">{{upVote}}</h1>
-                <img class="heart" src="../../images/heart.png">
+                <paper-fab  mini icon="favorite" title="heart"></paper-fab>
             </div>
-            <div class="col-sm-8 middle" >
+            <div class="col-xs-6 middle text-center" >
 
                 <div hidden$="{{shortView}}">
                     <h3>{{desc}}</h3>

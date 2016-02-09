@@ -45,9 +45,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
-
     <!-- endbuild-->
+
+  <!-- build:css bower_components/bootstrap/dist/css/bootstrap.min.css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- endbuild -->
+
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
   <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
@@ -62,10 +65,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </head>
 
 <body unresolved>
-  <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
-     <inja-card name="Ping Pong Table" author="@snejati86" up-vote="10"></inja-card>
-  </template>
+<span id="browser-sync-binding"></span>
+<template is="dom-bind" id="app">
+
+    <iron-pages attr-for-selected="data-route" selected="{{route}}">
+       <section data-route="home">
+          <div class="center-block main-container">
+              <div class="logo-container">
+                  <h1>Logo</h1>
+              </div>
+
+              <div class="login-button-container">
+                  <login-button service="Facebook"></login-button>
+              </div>
+          </div>
+        </section>
+        <section data-route="user">
+            <div>
+            <paper-material elevation="1">
+                <inja-card name="Ping Pong Table" author="@snejati86" up-vote="10"></inja-card>
+                <inja-card name="Something else" author="@kiki" up-vote="40"></inja-card>
+                <inja-card name="Boatlifting" author="@reed3" up-vote="15"></inja-card>
+            </paper-material>
+          </div>
+        </section>
+    </iron-pages>
+
+</template>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>

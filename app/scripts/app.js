@@ -1,13 +1,36 @@
 
 (function(document) {
   'use strict';
-
+  //TODO : I don't know if this belongs here, the official documentation says  that this must be placed in the body element of EACH page ?
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
 
-  // Sets app default base URL
+    window.fbAsyncInit = function() {
+
+        FB.init({
+            appId: '798090136940551',
+            cookie: true,  // enable cookies to allow the server to access
+                           // the session
+            xfbml: true,  // parse social plugins on this page
+            version: 'v2.2' // use version 2.2
+        });
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+
+    // Sets app default base URL
   app.baseUrl = '/';
   if (window.location.port === '') {  // if production
     // Uncomment app.baseURL below and
@@ -30,6 +53,8 @@
 
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
+      console.log('Ready');
+
     // imports are loaded and elements have been registered
   });
 
@@ -60,6 +85,30 @@
     // Scale middleContainer appName
     Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
   });
+
+    function statusChangeCallback(response) {
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+            console.log('WE ARE CONECTED');
+            // MOVE PAGE AND PASS THE FB ?
+            FB.api('/me', function(response) {
+                page('/user',response);
+            });
+        } else if (response.status === 'not_authorized') {
+            // DO NOTHING.
+            console.log('WE ARE NOT CONNECTED');
+        } else {
+            // The person is not logged into Facebook, so we're not sure if
+            // they are logged into this app or not.
+            console.log('HEY MAN, I DONT KNOW THE FUCK IS GOING ON HERE');
+        }
+    }
+
+
 
 /*  // Scroll page to top and expand header
   app.scrollPageToTop = function() {
