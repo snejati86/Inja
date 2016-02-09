@@ -62,17 +62,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </head>
 
 <body unresolved>
-  <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
-    <div class="center-block">
-  <h1>Inja main logo</h1>
-      <login-button service="Facebook"></login-button>
-    </div>
-     <!--<inja-card name="Ping Pong Table" author="@snejati86" up-vote="10"></inja-card>
-      <inja-card name="Something else" author="@kiki" up-vote="40"></inja-card>
-      <inja-card name="Boatlifting" author="@reed3" up-vote="15"></inja-card>-->
+<template is="dom-bind" id="app">
+    <div class="content">
 
-  </template>
+    <iron-pages attr-for-selected="data-route" selected="0">
+        <section data-route="home">
+            <div class="center-block main-container">
+                <div class="logo-container">
+                    <h1>Logo</h1>
+                </div>
+
+                <div class="login-button-container">
+                    <login-button service="Facebook"></login-button>
+                </div>
+
+
+            </div>
+        </section>
+        <section data-route="user">
+            <paper-material elevation="1">
+                <inja-card name="Ping Pong Table" author="@snejati86" up-vote="10"></inja-card>
+                <inja-card name="Something else" author="@kiki" up-vote="40"></inja-card>
+                <inja-card name="Boatlifting" author="@reed3" up-vote="15"></inja-card>
+            </paper-material>
+        </section>
+    </iron-pages>
+
+    </div>
+</template>
+<span id="browser-sync-binding"></span>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>

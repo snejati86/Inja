@@ -12,50 +12,15 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
-/*
 
-/!* entire container, keeps perspective *!/
-.flip-container {
-    perspective: 1000;
-}
-/!* flip the pane when hovered *!/
-.flip-container:hover .flipper, .flip-container.hover .flipper {
-    transform: rotateY(180deg);
+.logo-container{
+    height: 75%;
 }
 
-.flip-container, .front, .back {
-    width: 320px;
-    height: 480px;
+.login-button-container{
+    height: 25%;
 }
-
-/!* flip speed goes here *!/
-.flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-
-    position: relative;
+.main-container{
+    height: 100%;
 }
-
-/!* hide back of pane during swap *!/
-.front, .back {
-    backface-visibility: hidden;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-/!* front pane, placed above back *!/
-.front {
-    z-index: 2;
-    /!* for firefox 31 *!/
-    transform: rotateY(0deg);
-}
-
-/!* back, initially hidden pane *!/
-.back {
-    transform: rotateY(180deg);
-}
-*/
-
 
