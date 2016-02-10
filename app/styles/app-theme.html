@@ -25,9 +25,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* Application theme */
 
   :root {
-    --primary-text-color: #212121;
+    --primary-text-color: #ffffff;
     --primary-background-color: #ffffff;
-    --secondary-text-color: #737373;
+    --secondary-text-color: #ffffff;
     --disabled-text-color: #9b9b9b;
     --divider-color: #dbdbdb;
     --primary-color: #3f51b5;
@@ -70,40 +70,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     @apply(--paper-font-title);
   }
 
-  paper-scroll-header-panel {
-    height: 100%;
-  }
-
-  paper-menu {
-    --paper-menu-selected-item: {
-      color: var(--primary-color);
-    }
-
-    --paper-menu-focused-item-after: {
-      background: var(--primary-color);
-    }
-  }
-
-  paper-menu iron-icon {
-    margin-right: 33px;
-    opacity: 0.54;
-  }
-
-  paper-menu a {
-    @apply(--layout-horizontal);
-    @apply(--layout-center);
-
-    text-decoration: none;
-    color: var(--menu-link-color);
-    font-family: 'Roboto', 'Noto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    min-height: 48px;
-    padding: 0 16px;
-  }
 
   #mainToolbar.tall .app-name {
     font-size: 40px;
@@ -143,22 +109,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     height: 900px;
   }
 
-  section[data-route="home"] paper-material {
+  section[data-route="home"]  {
     @apply(--paper-font-body2);
   }
 
-  section[data-route="home"] paper-material .subhead {
+  section[data-route="home"]  .subhead {
     @apply(--paper-font-subhead);
   }
 
-  paper-material {
-    border-radius: 2px;
-    height: 100%;
-    padding: 16px 0 16px 0;
-    width: calc(98.66% - 16px);
-    margin: 16px auto;
-    background: white;
-  }
+
 
   #toast .toast-hide-button {
     color: #eeff41;
@@ -179,12 +138,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       font-weight: 400;
     }
 
-    paper-material {
-      --menu-container-display: none;
-      width: calc(97.33% - 32px);
-      padding-left: 16px;
-      padding-right: 16px;
-    }
 
   }
 
@@ -195,16 +148,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       border-right: 1px solid rgba(0, 0, 0, 0.14);
     }
 
-    iron-pages {
-      padding: 48px 62px;
-    }
 
-    paper-material {
-      width: calc(98% - 46px);
-      margin-bottom: 32px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
 
   }
 

@@ -12,3 +12,15 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+.logo-container{
+    height: 75%;
+}
+
+.login-button-container{
+    height: 25%;
+}
+.main-container{
+    height: 100%;
+}
+
