@@ -20,16 +20,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             :host {
               @apply(--layout-horizontal);
               @apply(--layout-wrap);
+
             }
 
 
             .addButton {
               position: absolute;
-              right: 16px;
-              bottom: 16px;
+                right: 3%;
+                bottom: 3%;
             }
         </style>
-          <content id="content">
+        <content class="layout" id="content">
           </content>
         <paper-fab icon="add" class="addButton" on-tap="addCard"></paper-fab>
     </template>

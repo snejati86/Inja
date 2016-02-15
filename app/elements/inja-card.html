@@ -16,6 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/paper-badge/paper-badge.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 
+
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -28,28 +29,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             :host {
                 display: block;
                 margin: .25em;
-                max-height: 350px;
-                --paper-badge-background: {
-                      #69F0AE
-                };
-                --paper-badge-text-color: {
-                  black;
-                }
+                max-height: 200em;
+                /*    --paper-badge-background: {
+                          #69F0AE
+                    };
+                    --paper-badge-text-color: {
+                      black;*/
+
 
             }
             .card{
-                --paper-card-header-color: {
-                  black;
-                }
-                --paper-card-background-color: {
-                  #304ffe;
-                };
-                width: 100%;
-                height: 100%;
+                height: 10em;
+                /*           --paper-card-header-color: {
+                             black;
+                           }
+                           --paper-card-background-color: {
+                             #304ffe;
+           /*                };*!/
+                           width: 100%;
+                           height: 100%;*/
+                background-color: #a9de50;
+                margin: 0.4%;
                 border-radius: 10px;
+                width: 97%;
             }
             .card-content {
-                color: #fff;
+                color: #353535;
                 font-family: "Roboto", sans-serif;
             }
             span {
@@ -58,17 +63,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             h1,h3 { font-size: 2em }
 
         </style>
-      <paper-card class="card" heading="{{author}}" image="{{image}}" id="card" elevation="3">
-        <div hidden$="{{!isEditing}}" class="card-content">
-          <paper-input label="Name" value="{{name}}"></paper-input>
-          <paper-input label="URL" value="{{image}}"></paper-input>
-          <paper-fab id="create" mini icon="create" title="create" on-tap="toggleEdit"></paper-fab>
-        </div>
-          <div hidden$="{{isEditing}}" class="card-content">
+        <paper-card class="card" elevation="3"> <!--heading="{{author}}" image="{{image}}" id="card" elevation="3">-->
+            <!--   <div class="card-content">
+                 <paper-input label="Name" value="{{name}}"></paper-input>
+                 <paper-input label="URL" value="{{image}}"></paper-input>
+                 <paper-fab id="create" mini icon="create" title="create" on-tap="toggleEdit"></paper-fab>
+               </div>-->
+            <div class="card-content">
               <h3 id="user">{{name}}</h3>
-              <div class="card-actions">
-                <paper-fab id="favorite" mini icon="favorite" title="heart"></paper-fab>
-                <paper-badge id="upvote" for="favorite" label="{{upVote}}"></paper-badge>
+
+                <div class="card-actions row">
+
+
+                    <div class="col-sm-1">
+                        <button>Vote up</button>
+                        <!--    <paper-fab id="favorite" mini icon="favorite" title="heart">
+                            </paper-fab>-->
+                    </div>
+                    <div class="col-sm-8 center-block">
+                        <h4>@snejati86</h4>
+                    </div>
+
+                    <!--
+                                    <paper-badge id="upvote" for="favorite" label="{{upVote}}"></paper-badge>
+                    -->
               </div>
           </div>
       </paper-card>
